@@ -1,0 +1,231 @@
+:root {
+    --bg-main: #121212;
+    --bg-panel: #1e1e1e;
+    --accent: #007acc;
+    --accent-hover: #005999;
+    --text-main: #e0e0e0;
+    --text-muted: #888;
+    --border: #333;
+}
+
+body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex; height: 100vh; overflow: hidden;
+}
+
+/* Sidebar Controls */
+.sidebar {
+    width: 320px;
+    background-color: var(--bg-panel);
+    border-right: 1px solid var(--border);
+    padding: 20px;
+    display: flex; flex-direction: column; gap: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    z-index: 10; overflow-y: auto;
+}
+
+/* Header & Titles */
+.sidebar-header {
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+.sidebar-header h2 {
+    font-size: 0.85rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 2px; margin: 0 0 5px 0;
+}
+.sidebar-header h1 {
+    font-size: 1.6rem; margin: 0; color: #fff; font-weight: 700; line-height: 1.1;
+}
+.sidebar-header .subtitle {
+    font-size: 0.85rem; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-top: 5px; font-weight: 600; margin-bottom: 15px;
+}
+
+.intro-text {
+    font-size: 0.8rem; color: var(--text-muted);
+    line-height: 1.5; font-style: italic;
+}
+.intro-text strong { color: #aaa; }
+
+/* Control Groups */
+.control-group {
+    background: #252526; padding: 15px;
+    border-radius: 6px; border: 1px solid var(--border);
+}
+.label-row {
+    display: flex; justify-content: space-between;
+    align-items: center; margin-bottom: 8px; font-size: 0.9rem;
+}
+
+/* Custom File Upload Styling */
+.file-upload-wrapper {
+    position: relative; overflow: hidden; display: inline-block; width: 100%;
+}
+.file-upload-wrapper input[type="file"] {
+    font-size: 100px; position: absolute; left: 0; top: 0;
+    opacity: 0; cursor: pointer; height: 100%;
+}
+.btn-upload {
+    background: #2d2d2d; color: #ccc; border: 1px dashed #666;
+    padding: 12px; border-radius: 4px; font-weight: 500;
+    cursor: pointer; text-align: center; transition: 0.2s;
+    width: 100%; display: block; box-sizing: border-box;
+}
+.file-upload-wrapper:hover .btn-upload {
+    background: #333; border-color: var(--accent); color: white;
+}
+.file-name-display {
+    font-size: 0.75rem; color: var(--accent);
+    margin-top: 8px; text-align: center; word-break: break-all; min-height: 12px;
+}
+/* --- Sample Image Buttons --- */
+.sample-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.btn-sample {
+    flex: 1; /* 让两个按钮平分宽度 */
+    background: #1e1e1e;
+    color: #aaa;
+    border: 1px solid var(--border);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+.btn-sample:hover {
+    background: #2a2a2a;
+    border-color: var(--accent);
+    color: #fff;
+    transform: translateY(-1px); /* 悬停时微微上浮 */
+}
+/* Tooltip styling (Fixed for Overflow) */
+.info-btn {
+    background: #333; color: #fff; border-radius: 50%;
+    width: 16px; height: 16px; display: inline-flex;
+    align-items: center; justify-content: center;
+    font-size: 10px; cursor: help; position: relative; font-weight: bold; margin-left: 5px;
+}
+.info-btn:hover::after {
+    content: attr(data-tooltip);
+    position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%);
+    background: #000; color: #fff; padding: 10px 14px;
+    border-radius: 6px; width: 220px; z-index: 100;
+    font-size: 0.8rem; font-weight: normal; line-height: 1.4;
+    border: 1px solid var(--border); box-shadow: 0 5px 15px rgba(0,0,0,0.5); pointer-events: none;
+}
+.info-btn:hover::before {
+    content: ''; position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: var(--border); z-index: 101;
+}
+
+/* Inputs & Buttons */
+input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--accent); }
+.btn {
+    background: var(--accent); color: white; border: none;
+    padding: 12px; border-radius: 4px; font-weight: 600;
+    cursor: pointer; transition: 0.2s; font-size: 1rem; width: 100%;
+}
+.btn:hover { background: var(--accent-hover); }
+.btn:disabled { background: #444; cursor: not-allowed; color: #888; }
+.btn-danger { background: #8a2be2; margin-top: 10px; }
+.btn-danger:hover { background: #6a1b9a; }
+
+/* Export Buttons */
+.export-group { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 10px; }
+.btn-export {
+    background: #333; font-size: 0.75rem; padding: 8px 4px;
+    border: 1px solid var(--border); color: white; border-radius: 4px; cursor: pointer; transition: 0.2s;
+}
+.btn-export:hover { background: #444; border-color: var(--accent); }
+
+/* Main Viewport Area */
+.workspace {
+    flex: 1; display: flex; flex-direction: column; padding: 20px; gap: 20px; overflow-y: auto;
+}
+.viewers-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 50vh; min-height: 400px;
+}
+.canvas-container {
+    position: relative; background: #000; border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.canvas-title {
+    position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7);
+    padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; z-index: 5;
+}
+
+/* Map controls */
+.map-controls { position: absolute; bottom: 10px; right: 10px; display: flex; gap: 5px; z-index: 5; }
+.map-btn {
+    background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);
+    width: 30px; height: 30px; border-radius: 4px; cursor: pointer; backdrop-filter: blur(4px);
+}
+.map-btn:hover { background: rgba(255,255,255,0.3); }
+canvas { cursor: crosshair; }
+
+/* Result Container */
+.result-container {
+    min-height: 500px; border-radius: 8px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; background-color: #1a1a1a;
+    background-image: linear-gradient(45deg, #121212 25%, transparent 25%), 
+                      linear-gradient(-45deg, #121212 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #121212 75%), 
+                      linear-gradient(-45deg, transparent 75%, #121212 75%);
+    background-size: 20px 20px;
+}
+
+
+.sidebar-footer {
+    margin-top: auto; /* 自动推到侧边栏底部 */
+    padding-top: 20px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    line-height: 1.4;
+}
+.sidebar-footer strong {
+    color: var(--accent);
+}
+
+
+/* --- Custom Scrollbar Styling --- */
+/* 针对 Chrome, Safari, Edge */
+::-webkit-scrollbar {
+    width: 8px; /* 宽度变细 */
+    height: 8px;
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    background: var(--bg-main); 
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background: #333; /* 初始颜色：深灰 */
+    border-radius: 10px; /* 圆角设计 */
+    border: 2px solid var(--bg-main); /* 增加间隙，看起来更悬浮 */
+}
+
+/* 鼠标悬停在滑块上时 */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent); /* 悬停时变成你的主题蓝色 */
+}
+
+/* 针对 Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 var(--bg-main);
+}
+#resultImage { max-width: 100%; max-height: 100%; object-fit: contain; z-index: 2; }
+#loading { display: none; position: absolute; color: var(--accent); font-weight: bold; font-size: 1.2rem; z-index: 3; text-shadow: 0px 0px 5px #000; }

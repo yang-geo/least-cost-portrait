@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Least Cost Portrait Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>Least Cost Portrait</h1>
+            <p class="subtitle">A Map Algebra Exploration</p>
+            <div class="intro-text">
+                Inspired by <strong>Dana Tomlin's lecture</strong> at KTH (May 11, 2026). This tool translates Map Algebra and cost-distance algorithms into spatial art, treating image brightness as physical friction.
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="label-row">
+                <label>Source Image</label>
+            </div>
+            <div class="file-upload-wrapper">
+                <div class="btn-upload" id="uploadBtnText">📁 Click to Choose Image</div>
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+            
+            <div class="sample-group">
+                <button class="btn-sample" onclick="loadSample('MonaLisa.jpg', 'Mona Lisa')">🖼️ Mona Lisa</button>
+                <button class="btn-sample" onclick="loadSample('EddiePeng.png', 'Eddie Peng')">🖼️ Eddie Peng</button>
+            </div>
+
+            <div class="file-name-display" id="fileNameDisplay"></div>
+        </div>
+        
+        <div class="control-group">
+            <div class="label-row">
+                <label>
+                    Friction Multiplier 
+                    <span class="info-btn" data-tooltip="Determines how much dark pixels impede the wavefront. 0 = Pure Euclidean distance. Higher values create aggressive refraction around facial features.">?</span>
+                </label>
+                <span id="frictionVal">50</span>
+            </div>
+            <input type="range" id="friction" min="0" max="300" value="50">
+        </div>
+        
+        <div class="control-group">
+            <div class="label-row">
+                <label>
+                    Contour Density 
+                    <span class="info-btn" data-tooltip="Defines the number of topographic contour lines drawn. Higher values yield finer details but may clutter dark regions.">?</span>
+                </label>
+                <span id="levelsVal">60</span>
+            </div>
+            <input type="range" id="levels" min="10" max="250" value="60">
+        </div>
+
+        <div class="control-group" style="background: transparent; border: none; padding: 0;">
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 10px;">
+                <strong>Instruction:</strong> Click on either image to place wavefront seeds (e.g., on the eyes). Use mouse wheel to zoom.
+            </p>
+            <button id="clearPointsBtn" class="btn btn-danger">Clear All Seeds</button>
+        </div>
+
+        <button id="generateBtn" class="btn">Generate Portrait</button>
+
+        <div class="control-group">
+            <div class="label-row">
+                <label>Export Result</label>
+            </div>
+            <div class="export-group">
+                <button class="btn-export" onclick="exportResult('png')">PNG</button>
+                <button class="btn-export" onclick="exportResult('jpeg')">JPG</button>
+                <button class="btn-export" onclick="exportResult('svg')">SVG</button>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            Developed by <strong>Ziqi Yang</strong><br>
+            KTH
+        </div>
+    </div>
+
+    <div class="workspace">
+        <div class="viewers-grid">
+            <div class="canvas-container" id="containerOrig">
+                <div class="canvas-title">Original RGB</div>
+                <div class="map-controls">
+                    <button class="map-btn zoom-in">+</button>
+                    <button class="map-btn zoom-out">-</button>
+                    <button class="map-btn zoom-reset">↺</button>
+                </div>
+                <canvas id="canvasOriginal"></canvas>
+            </div>
+            <div class="canvas-container" id="containerGray">
+                <div class="canvas-title">Cost Surface (Grayscale)</div>
+                <div class="map-controls">
+                    <button class="map-btn zoom-in">+</button>
+                    <button class="map-btn zoom-out">-</button>
+                    <button class="map-btn zoom-reset">↺</button>
+                </div>
+                <canvas id="canvasGray"></canvas>
+            </div>
+        </div>
+
+        <div class="result-container">
+            <div class="canvas-title" style="top: 10px; left: 10px;">Rendered Output</div>
+            <p id="loading">Computing Cost Surface...</p>
+            <img id="resultImage" style="display: none;" />
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
