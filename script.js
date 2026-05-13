@@ -3,8 +3,7 @@ const canvasOrig = document.getElementById('canvasOriginal');
 const ctxOrig = canvasOrig.getContext('2d', { willReadFrequently: true });
 const canvasGray = document.getElementById('canvasGray');
 const ctxGray = canvasGray.getContext('2d');
-const API_BASE = 'https://your-app-name.onrender.com';
-
+const API_BASE = 'https://least-cost-portrait.onrender.com';
 let seeds = []; 
 let rawImage = null; // The loaded HTMLImageElement
 let uploadedFile = null;
