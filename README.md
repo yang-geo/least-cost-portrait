@@ -13,7 +13,7 @@ Demo
 <p align="center">
   <img src="MonaLisa.jpg" width="45%" alt="Original"/>
   &nbsp;&nbsp;
-  <img src="MonaLisa_Result.jpg" width="45%" alt="Portrait Output"/>
+  <img src="MonaLisa_Result.png" width="45%" alt="Portrait Output"/>
 </p>
 <p align="center">
   <em>Original &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portrait Output</em>
