@@ -18,6 +18,14 @@ Demo
 <p align="center">
   <em>Original &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portrait Output</em>
 </p>
+<p align="center">
+  <img src="EddiePeng.png" width="45%" alt="Original"/>
+  &nbsp;&nbsp;
+  <img src="EddiePeng_Result.png" width="45%" alt="Portrait Output"/>
+</p>
+<p align="center">
+  <em>Original &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portrait Output</em>
+</p>
 ## The Concept
 
 This project is built on the core idea of **cost-distance analysis** from GIS:
