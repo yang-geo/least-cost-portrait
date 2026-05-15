@@ -1,13 +1,14 @@
 # Least Cost Portrait — KTH Studio Edition
 
-Demo
-🌐 Live Demo: yang-geo.github.io/least-cost-portrait
 
-⚠️ The backend runs on a free-tier server. Processing may take 30–60 seconds — please be patient after placing your seed point.
 > *Transforming image brightness into physical friction, and friction into art.*
 
 Inspired by **Dana Tomlin's lecture on Map Algebra** at KTH (May 11, 2026), this experimental full-stack web application bridges classic GIS algorithms with generative visual art. It treats every pixel's luminance as a resistance value and simulates a wavefront propagating across the image surface — the resulting **iso-cost contour lines** become a portrait.
 
+Demo
+🌐 **Live Demo: [yang-geo.github.io/least-cost-portrait](https://yang-geo.github.io/least-cost-portrait/)**
+
+⚠️ The backend runs on a free-tier server. Processing may take 30–60 seconds — please be patient after placing your seed point.
 ---
 
 ## The Concept
