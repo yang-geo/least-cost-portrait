@@ -10,7 +10,14 @@ Demo
 
 ⚠️ The backend runs on a free-tier server. Processing may take 30–60 seconds — please be patient after placing your seed point.
 ---
-
+<p align="center">
+  <img src="MonaLisa.jpg" width="45%" alt="Original"/>
+  &nbsp;&nbsp;
+  <img src="MonaLisa_Result.jpg" width="45%" alt="Portrait Output"/>
+</p>
+<p align="center">
+  <em>Original &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portrait Output</em>
+</p>
 ## The Concept
 
 This project is built on the core idea of **cost-distance analysis** from GIS:
